@@ -8,7 +8,9 @@ import { errorHandler } from "./middleware/errorHandler";
 dotenv.config();
 
 const app = express();
-
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "Welcome to the Google Cloud Storage API" });
+});
 app.use("/auth", authRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use(errorHandler);
